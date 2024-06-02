@@ -1,4 +1,10 @@
-const { defineConfig } = require('@vue/cli-service')
-module.exports = defineConfig({
+const Dotenv = require('dotenv-webpack');
+
+module.exports = {
+  configureWebpack: {
+    plugins: [
+      new Dotenv()
+    ]
+  },
   transpileDependencies: true
-})
+};

@@ -6,6 +6,8 @@ import com.spensmart.spendsmartapi.repositories.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProfileService {
     @Autowired
@@ -13,6 +15,10 @@ public class ProfileService {
 
     public Profile findById(Long id) {
         return profileRepository.findById(id).orElse(null);
+    }
+
+    public List<Profile> findAll() {
+        return profileRepository.findAll();
     }
 
     public Profile insert(Profile profile) {
