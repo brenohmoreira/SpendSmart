@@ -48,20 +48,28 @@
         </div>
       </div>
     </div>
+    <popup-component :typePopup="typePopup" :messagePopup="messagePopup" :open="open"></popup-component>
   </div>
 </template>
 
 <script>
   import auth from '@/services/auth'
   import cookie from '@/services/cookie'
+  import PopupComponent from '@/components/PopupComponent.vue'
 
   export default {
     name: 'AuthComponent',
+    components: {
+      PopupComponent
+    },
     props: ['type'],
     data: () => ({
       email: '',
       password: '',
-      name: ''
+      name: '',
+      typePopup: '',
+      messagePopup: '',
+      open: false
     }),
     methods: {
       async createAccount() {
@@ -71,7 +79,8 @@
           this.name = ''
           this.email = ''
           this.password = ''
-          console.log("A conta já existe patrão")
+          
+          this.popupManagement('error', 'Já existe uma conta com esse e-mail cadastrada!')
         }
         else {
           this.name = ''
@@ -91,6 +100,16 @@
         }
         
         console.log("Errou o login, coisa feia!")
+      },
+
+      popupManagement(typePopup, messagePopup) {
+        this.typePopup = typePopup
+        this.messagePopup = messagePopup
+        this.open = true
+
+        setTimeout(() => {
+          this.open = false
+        }, 3000)
       }
     }
   }
