@@ -37,4 +37,21 @@
   body {
     font-family: 'Lato', sans-serif;
   }
+
+  .content {
+    width: 82%;
+    height: 100%;
+  }
+
+  aside.menu {
+    width: 18%;
+    height: 100%;
+    background-color: white;
+    overflow: auto;
+  }
+
+  main {
+    width: 100%;
+    height: calc(100vh - 65px);
+  }
 </style>
