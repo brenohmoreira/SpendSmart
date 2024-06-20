@@ -25,7 +25,7 @@ public class IndexResource {
     @PostMapping(value = "authenticate")
     public ResponseEntity<Long> authenticate(@RequestBody AuthenticationRequest authenticationRequest) {
         List<Profile> profiles = profileService.findAll();
-        Long id = null;
+        Long id = (long) -1;
         for (Profile profile : profiles) {
             if(profile.getEmail().equals(authenticationRequest.getEmail()) && profile.getPassword().equals(authenticationRequest.getPassword())) {
                 id = profile.getId();

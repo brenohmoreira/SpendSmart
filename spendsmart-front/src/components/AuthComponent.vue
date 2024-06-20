@@ -94,9 +94,10 @@
       async authenticate() {
         let id = await auth.authenticate(this.email, this.password)
         
-        if(id !== null) {
+        if(id !== -1) {
           cookie.setCookie('id', id, 1)
           this.$router.push('/?message=authenticated')
+          return
         }
         
         console.log("Errou o login, coisa feia!")
@@ -198,6 +199,10 @@
     position: absolute;
     top: 15px;
     fill: #4169e1;
+  }
+
+  .selected .input-form svg path {
+    fill: white !important;
   }
 
   .input-form input:focus {
