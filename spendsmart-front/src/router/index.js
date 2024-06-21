@@ -1,7 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import LoginView from '../views/LoginView.vue'
-import HomeView from '../views/HomeView.vue'
-import WalletView from '../views/WalletView.vue'
+import LoginView from '@/views/LoginView.vue'
+import HomeView from '@/views/HomeView.vue'
+import WalletView from '@/views/WalletView.vue'
+import SpentsView from '@/views/SpentsView.vue'
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     path: '/wallet',
     name: 'wallet',
     component: WalletView
+  },
+  {
+    path: '/spents',
+    name: 'spents',
+    component: SpentsView
   },
   {
     path: '/login',

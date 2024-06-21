@@ -26,6 +26,6 @@ public class ProfileService {
     }
 
     public Profile fromDTO(ProfileDTO dto) {
-        return new Profile(dto.getName(), dto.getPassword(), dto.getEmail());
+        return new Profile(dto.getName(), dto.getPassword(), dto.getEmail(), dto.getIncome());
     }
 }

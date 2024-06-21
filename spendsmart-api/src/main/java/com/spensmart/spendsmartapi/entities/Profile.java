@@ -1,9 +1,13 @@
 package com.spensmart.spendsmartapi.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -17,15 +21,25 @@ public class Profile implements Serializable {
     private String name;
     private String password;
     private String email;
+    @Nullable
+    private Double income;
+
+    @OneToMany(mappedBy = "profile")
+    private List<Spent> spents = new ArrayList<>();
 
     public Profile() {
 
     }
 
-    public Profile(String name, String password, String email) {
+    public Profile(String name, String password, String email, @Nullable Double income) {
         this.name = name;
         this.password = password;
         this.email = email;
+        this.income = income;
+    }
+
+    public List<Spent> getSpents() {
+        return spents;
     }
 
     public Long getId() {
@@ -58,6 +72,14 @@ public class Profile implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Double getIncome() {
+        return income;
+    }
+
+    public void setIncome(Double income) {
+        this.income = income;
     }
 
     @Override
