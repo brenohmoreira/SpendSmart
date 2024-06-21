@@ -4,12 +4,21 @@
       <img src="../../assets/img/logo.png">
       <p> SPEND SMART </p>
     </div>
+    <p id="leave-option" @click="sairDaConta"> SAIR </p>
   </header>
 </template>
 
 <script>
+  import cookie from '@/services/cookie'
+
   export default {
-    name: "HeaderComponent"
+    name: "HeaderComponent",
+    methods: {
+      sairDaConta() {
+        cookie.setCookie('id', '', -1)
+        this.$router.push('/login?message=desloged')
+      }
+    }
   }
 </script>
 
@@ -21,6 +30,15 @@
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.17);
     position: relative;
     z-index: 99999;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 30px;
+  }
+
+  #leave-option {
+    cursor: pointer;
   }
 
   header div {

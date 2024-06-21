@@ -39,6 +39,7 @@
   .content {
     width: 82%;
     height: 100%;
+    padding: 30px;
   }
 
   aside.menu {
