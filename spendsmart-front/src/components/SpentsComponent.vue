@@ -1,30 +1,5 @@
 <template>
   <div id="spents-container" class="content">
-    <!-- 
-    <div id="spents-crud"> 
-      <div id="row-crud">
-        <div class="row-crud-input">
-          <label> Título </label> 
-          <input type="text" placeholder="Digite um título">
-        </div>
-        <div class="row-crud-input">
-          <label> Preço </label> 
-          <input type="text" placeholder="Digite o preço">
-        </div>
-        <div class="row-crud-input">
-          <label> Data </label>
-          <input type="datetime-local" v-model="spentDate" placeholder="Digite a data do gasto">
-        </div>
-      </div>
-      <label style="margin-top: 10px;"> Descrição </label>
-      <textarea placeholder="Digite a descrição"></textarea>
-      <div id="spent-buttons">
-        <button id="edit"> Editar </button>
-        <button id="add"> Adicionar </button>
-      </div>
-    </div>
-    -->
-
     <div id="spents-content">
       <header>
         <input id="date" type="datetime-local" v-model="spentDate">
@@ -38,145 +13,131 @@
 
       <main>
         <table>
-          <tr class="light-gray">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
-          </tr>
           <tr>
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
+            <th class="select-column"></th>
+            <th class="title-column"> Título </th>
+            <th class="value-column"> Valor </th>
+            <th class="data-column"> Data </th>
           </tr>
-          <tr class="light-gray">
+          <tr class="light-gray row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr>
+          <tr class="row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr class="light-gray">
+          <tr class="light-gray row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr>
+          <tr class="row-td"> 
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr class="light-gray">
+          <tr class="light-gray row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr>
+          <tr class="row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr class="light-gray">
+          <tr class="light-gray row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr>
+          <tr class="row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr class="light-gray">
+          <tr class="light-gray row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr>
+          <tr class="row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr class="light-gray">
+          <tr class="light-gray row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr>
+          <tr class="row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr class="light-gray">
+          <tr class="light-gray row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr>
+          <tr class="row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr class="light-gray">
+          <tr class="light-gray row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr>
+          <tr class="row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr class="light-gray">
+          <tr class="light-gray row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
           </tr>
-          <tr>
+          <tr class="row-td">
             <td class="select-column"> <input type="checkbox"> </td>
             <td class="title-column"> <span> Título de teste </span> </td>  
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-            <td class="view-column"> <button> VER </button> </td>
+          </tr>
+          <tr class="light-gray row-td">
+            <td class="select-column"> <input type="checkbox"> </td>
+            <td class="title-column"> <span> Título de teste </span> </td>  
+            <td class="value-column"> <span> R$ 20,00 </span> </td>
+            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
+          </tr>
+          <tr class="row-td">
+            <td class="select-column"> <input type="checkbox"> </td>
+            <td class="title-column"> <span> Título de teste </span> </td>  
+            <td class="value-column"> <span> R$ 20,00 </span> </td>
+            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
           </tr>
         </table>
       </main>
@@ -199,6 +160,23 @@
 </script>
 
 <style scoped>
+  main::-webkit-scrollbar {
+      width: 12px; 
+  }
+
+  main::-webkit-scrollbar-track {
+      background: #f1f1f1; 
+  }
+
+  main::-webkit-scrollbar-thumb {
+      background-color: #888; 
+      border-radius: 6px; 
+  }
+
+  main::-webkit-scrollbar-thumb:hover {
+      background-color: #555; 
+  }
+
   #spents-container {
     padding: 30px;
     display: flex;
@@ -220,7 +198,7 @@
   }
 
   #actions-btn button {
-    width: 175px;
+    width: 100px;
     height: 40px;
     background-color: #5678dd;
     color: white;
@@ -263,15 +241,36 @@
     border-collapse: collapse;
   }
 
+  .row-td:hover {
+    background-color: rgb(223, 223, 223);
+    cursor: pointer;
+    transition: .3s;
+  }
+
+  td, th {
+    padding: 10px;
+    text-align: left;
+  }
+
   td {
     height: 30px;
     text-align: left;
+  }
+
+  th {
+    font-weight: 400;
+  }
+
+  tr {
+    border-bottom: 1px solid lightgray;
   }
 
   .select-column {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    height: 100%;
   }
 
   .select-column input {
@@ -288,114 +287,7 @@
     width: 25%;
   }
 
-  .view-column {
-    width: 10%;
-  }
-
   .value-column {
     width: 30%;
   }
-
-  .view-column button {
-    width: 100%;
-    height: 25px;
-    background-color: #5678dd;
-    color: white;
-    outline: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .view-column button:hover {
-    background-color: #3c5ec5;
-    transition: .3s;
-  }
-
-  .light-gray {
-    background-color: #e8edf2;
-  }
-
-  /*
-  #spents-crud {
-    width: 100%;
-    height: 35%;
-    padding: 20px;
-    background-color: white;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.17);
-
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column
-  }
-
-  .row-crud-input {
-    display: flex;
-    flex-direction: column;
-    width: 32%;
-  }
-
-  #spents-crud label {
-    font-size: 15px;
-  }
-
-  #spents-crud textarea {
-    width: 100%;
-    height: 35%;
-    padding: 10px;
-    resize: none;
-    border: 1px solid gray;
-    outline: none;
-  }
-
-  #spents-crud button {
-    width: 175px;
-    height: 40px;
-    border: none;
-    outline: none;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.17);
-    margin-top: 10px;
-    cursor: pointer;
-    transition: .3s;
-  }
-
-  #add {
-    background-color: #5678dd;
-    color: white;
-  }
-
-  #add:hover {
-    background-color: #3d5fc4;
-  }
-
-  #edit {
-    background-color: white;
-    color: #5678dd;
-    border: 1px solid #5678dd !important;
-  }
-
-  #edit:hover {
-    background-color: #5678dd;
-    color: white;
-    border: none;
-  }
-
-  #spent-buttons {
-    display: flex;
-    justify-content: end;
-    gap: 15px;
-  }
-
-  #row-crud {
-    display: flex;
-    gap: 2%;
-    justify-content: space-between;
-  }
-
-  #row-crud input {
-    width: 100%;
-    height: 40px;
-    padding: 0 10px;
-    border: 1px solid gray;
-    outline: none;
-  }*/
 </style>
