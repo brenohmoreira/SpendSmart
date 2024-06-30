@@ -1,12 +1,13 @@
 <template>
   <div id="spents-container" class="content">
+    <spent-inc-alt :incAltDialog="spentIncAltDialog" @update:incAltDialog="handlePropUpdate"/>
     <div id="spents-content">
       <header>
         <input id="date" type="datetime-local" v-model="spentDate">
 
         <div id="actions-btn">
-          <button> CRIAR </button>
-          <button> EDITAR </button>
+          <button @click="createSpent"> CRIAR </button>
+          <button @click="editSpent"> EDITAR </button>
           <button> APAGAR </button>
         </div>
       </header>
@@ -31,114 +32,6 @@
             <td class="value-column"> <span> R$ 20,00 </span> </td>
             <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
           </tr>
-          <tr class="light-gray row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="row-td"> 
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="light-gray row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="light-gray row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="light-gray row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="light-gray row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="light-gray row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="light-gray row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="light-gray row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="light-gray row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
-          <tr class="row-td">
-            <td class="select-column"> <input type="checkbox"> </td>
-            <td class="title-column"> <span> Título de teste </span> </td>  
-            <td class="value-column"> <span> R$ 20,00 </span> </td>
-            <td class="data-column"> <span> 21/06/2024 21:35:00 </span> </td>
-          </tr>
         </table>
       </main>
     </div>
@@ -146,18 +39,51 @@
 </template>
 
 <script>
+  import SpentIncAlt from '@/components/spent/SpentIncAlt.vue'
   import format from "./../util/format"
-  import { findByUserId } from "./../services/spent"
   import cookie from '@/services/cookie'
+  import { findByUserId } from "./../services/spent"
 
   export default {
     name: "SpentsComponent",
+    components: {
+      SpentIncAlt
+    },
     data: () => ({
       spentDate: "",
+      spents: [],
+      spentIncAltDialog: {
+        state: false,
+        type: 'inc',
+        id: -1
+      }
     }),
-    mounted() {
+    methods: {
+      handlePropUpdate(newValue) {
+        this.spentIncAltDialog.state = newValue;
+      },
+      createSpent() {
+        this.spentIncAltDialog.type = 'inc'
+        this.spentIncAltDialog.state = true;
+        this.spentIncAltDialog.id = -1
+      },
+      editSpent() {
+        this.spentIncAltDialog.type = 'alt'
+        this.spentIncAltDialog.state = true;
+        // get id da row seleciona
+      }
+    },
+    async mounted() {
       this.spentDate = format.formatDate(new Date())
-      findByUserId(cookie.getCookie('id'))
+      this.spents = await findByUserId(cookie.getCookie('id'))
+    },
+    watch: {
+      'spentIncAltDialog.state': function(newValue) {
+        if(newValue == false) {
+          this.spentIncAltDialog.type = 'inc'
+          this.spentIncAltDialog.id = -1
+        }
+      }
     }
   }
 </script>

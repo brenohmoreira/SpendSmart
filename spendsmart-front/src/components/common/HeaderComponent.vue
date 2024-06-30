@@ -29,7 +29,7 @@
     background-color: #ffffff;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.17);
     position: relative;
-    z-index: 99999;
+    z-index: 99;
 
     display: flex;
     justify-content: space-between;
