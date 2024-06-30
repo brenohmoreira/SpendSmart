@@ -38,7 +38,7 @@ public class ProfileDTO implements Serializable {
         this.password = profile.getPassword();
         this.income = profile.getIncome();
         if(profile.getSpents() != null)
-            this.spentsDTO = profile.getSpents().stream().map(spent -> new SpentDTO(spent.getId(), spent.getTitle(), spent.getDescription(), spent.getAmount(), this)).collect(Collectors.toList());
+            this.spentsDTO = profile.getSpents().stream().map(spent -> new SpentDTO(spent.getId(), spent.getMoment(), spent.getTitle(), spent.getDescription(), spent.getAmount(), this)).collect(Collectors.toList());
     }
 
     public List<SpentDTO> getSpentsDTO() {

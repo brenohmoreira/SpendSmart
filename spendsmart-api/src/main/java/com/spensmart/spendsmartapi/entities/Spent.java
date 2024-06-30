@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -18,6 +19,7 @@ public class Spent implements Serializable {
     private String title;
     private String description;
     private Double amount;
+    private LocalDateTime moment;
 
     @JsonBackReference
     @ManyToOne
@@ -27,11 +29,12 @@ public class Spent implements Serializable {
     public Spent() {
     }
 
-    public Spent(String title, String description, Long id, Double amount) {
+    public Spent(String title, String description, Long id, Double amount, LocalDateTime localDateTime) {
         this.title = title;
         this.description = description;
         this.id = id;
         this.amount = amount;
+        this.moment = localDateTime;
     }
 
     public Profile getProfile() {
@@ -68,6 +71,14 @@ public class Spent implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public LocalDateTime getMoment() {
+        return moment;
+    }
+
+    public void setMoment(LocalDateTime moment) {
+        this.moment = moment;
     }
 
     @Override

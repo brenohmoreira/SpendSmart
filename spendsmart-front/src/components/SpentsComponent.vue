@@ -147,6 +147,8 @@
 
 <script>
   import format from "./../util/format"
+  import { findByUserId } from "./../services/spent"
+  import cookie from '@/services/cookie'
 
   export default {
     name: "SpentsComponent",
@@ -155,6 +157,7 @@
     }),
     mounted() {
       this.spentDate = format.formatDate(new Date())
+      findByUserId(cookie.getCookie('id'))
     }
   }
 </script>
