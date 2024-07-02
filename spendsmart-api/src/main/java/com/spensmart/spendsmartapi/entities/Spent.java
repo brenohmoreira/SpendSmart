@@ -26,6 +26,11 @@ public class Spent implements Serializable {
     @JoinColumn(name = "idProfile")
     private Profile profile;
 
+    @JsonBackReference
+    @ManyToOne
+    @JoinColumn(name = "idCategory")
+    private Category category;
+
     public Spent() {
     }
 
