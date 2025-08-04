@@ -9,7 +9,7 @@ export function LoginComponent() {
       <div className="flex w-full max-w-5xl bg-white rounded shadow-lg overflow-hidden">
         {/* Imagem: aparece apenas em telas md (768px) ou maiores */}
         <div className="hidden md:flex w-1/2 bg-primary items-center justify-center">
-          <img className="w-2/3 max-w-xs" src="/assets/images/login_image.svg" alt="Login visual" />
+          <img className="w-2/4 max-w-xs" src="/assets/images/login_image.svg" alt="Login visual" />
         </div>
 
         {/* Formulário: ocupa toda a largura no mobile, metade em telas maiores */}
