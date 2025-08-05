@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize-typescript"
+import { QueryTypes } from "sequelize"
 
 const connection: Sequelize = new Sequelize({
   dialect: "mysql",
@@ -12,24 +13,71 @@ const connection: Sequelize = new Sequelize({
 export const connectDB = async () => {
   connection.authenticate().then(() => {
     console.log("Authentication with the database was successful")
-    global.connection = connection;
+    global.connection = connection
+    global.jwtSecret = process.env.JWT_SECRET
   }).catch((error) => {
     console.log(error)
     throw error 
   })
 }
 
-export const executeSQL = async <T = any>(sql: string): Promise<T[]> => {
+export const selectQuery = async <T = any>(sql: string, params: object = {}): Promise<T[]> => {
   try {
-    const [result] = await global.connection.query(sql) as [T[], unknown];
+    const [result] = await global.connection.query(sql, {
+      replacements: params,
+      type: QueryTypes.SELECT
+    })
 
-    if (process.env.LOG === "S") 
-      console.log(result)
+    if (process.env.LOG === "S") console.log(result)
 
-    return result || []
+    return typeof result == 'object' ? [result] : result 
   }
   catch (err) {
     console.error(err)
     throw err 
+  }
+}
+
+
+export const insertQuery = async (sql: string, params: object = {}): Promise<number> => {
+  try {
+    const result = await global.connection.query(sql, { replacements: params, type: QueryTypes.INSERT })
+
+    const affectedRows = Array.isArray(result) ? result[1] ?? 0 : 0
+
+    if (process.env.LOG === "S") console.log({ affectedRows })
+
+    return affectedRows
+  } catch (err) {
+    console.error(err)
+    throw err
+  }
+}
+
+export const updateQuery = async (sql: string, params: object = {}): Promise<number> => {
+  try {
+    const result = await global.connection.query(sql, { replacements: params, type: QueryTypes.UPDATE })
+    const affectedRows = Array.isArray(result) ? result[1] ?? 0 : 0
+
+    if (process.env.LOG === "S") console.log({ affectedRows })
+
+    return affectedRows
+  } catch (err) {
+    console.error(err)
+    throw err
+  }
+}
+
+export const deleteQuery = async (sql: string, params: object = {}): Promise<number> => {
+  try {
+    const result = await global.connection.query(sql, { replacements: params, type: QueryTypes.DELETE })
+    const affectedRows = Array.isArray(result) ? result[1] ?? 0 : 0
+    
+    if (process.env.LOG === "S") console.log({ affectedRows })
+
+    return affectedRows
+  } catch (err) {
+    console.error(err)
+    throw err
   }
 }
