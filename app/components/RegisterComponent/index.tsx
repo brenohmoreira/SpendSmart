@@ -1,3 +1,6 @@
+'use client'
+
+import Link from "next/link"
 import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
 
@@ -48,7 +51,9 @@ export function RegisterComponent() {
             Cadastrar 
           </button>
 
-          <a href="/login" className="text-center text-sm"> Já possui uma conta? <span className="text-primary"> Conecte-se! </span> </a>
+          <Link href="/login" className="text-center text-sm">
+            Já possui uma conta? <span className="text-primary"> Conecte-se! </span>
+          </Link>
         </div>
       </form>
     </div>
