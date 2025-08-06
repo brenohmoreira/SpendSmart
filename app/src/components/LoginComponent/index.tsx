@@ -6,13 +6,13 @@ import { Eye, EyeOff } from "lucide-react"
 import { useState } from "react"
 import { api } from "@/lib/axios"
 import { toast } from "react-toastify"
-// import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 
 export function LoginComponent() {
   const [showPassword, setShowPassword] = useState(false)
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  // const router = useRouter()
+  const router = useRouter()
 
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault()
@@ -22,7 +22,8 @@ export function LoginComponent() {
       password,
       rememberMe: false // Assuming rememberMe is false by default
     }).then(response => {
-      console.log(response)
+      toast.success("Conectado com sucesso")
+      router.push("/")
     }).catch(error => {
       if (error.status === 401) {
         toast.error("Credenciais inválidas")

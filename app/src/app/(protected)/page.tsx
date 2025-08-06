@@ -3,5 +3,5 @@ export default function Home() {
     <main>
       <h1 className="text-primary">Página Home</h1>
     </main>
-  );
+  )
 }
