@@ -27,7 +27,13 @@ export function RegisterComponent() {
       toast.success("Cadastro realizado com sucesso! Conecte-se agora")
       router.push("/login")
     }).catch(error => {
+      if (error.status === 409) {
+        toast.error("E-mail já cadastrado")
+        return 
+      }
+
       console.log(error)
+
       toast.error("Erro ao cadastrar. Verifique suas informações e tente novamente.")
     })
   }

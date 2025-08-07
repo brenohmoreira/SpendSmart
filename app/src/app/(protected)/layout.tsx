@@ -5,9 +5,9 @@ export default function ProtectedLayout({ children }: { children: React.ReactNod
   return (
     <>
       <HeaderComponent/>
-      <div className="w-full min-h-screen">
+      <div className="w-full h-[93vh] flex row">
         <NavigationComponent/>
-        <div>
+        <div className="overflow-y-auto h-full w-[85vw]">
           {children}
         </div>
       </div>

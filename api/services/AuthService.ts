@@ -17,8 +17,6 @@ export const AuthService = {
       }
     }
 
-    console.log(users[0])
-
     const passwordMatch: boolean = await PasswordUtils.compare(password, users[0].password)
 
     if (!passwordMatch) {
