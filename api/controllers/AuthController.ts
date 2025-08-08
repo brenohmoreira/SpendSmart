@@ -1,7 +1,8 @@
 import { Request, Response } from "express"
 import { AuthService } from "../services/AuthService"
-import { HttpType } from "../types/HttpType"
+import { AuthData, HttpType } from "../types/HttpType"
 import { validateParams } from "../utils/ValidationUtils"
+import cookie from "cookie"
 
 export const AuthController = {
   login: async (req: Request, res: Response): Promise<Response> => {
@@ -11,10 +12,20 @@ export const AuthController = {
     if (!validateParams({ email, password }, res)) return res;
 
     try {
-      const auth: HttpType = await AuthService.auth(email, password, rememberMe)
+      const auth: HttpType<AuthData> = await AuthService.auth(email, password, rememberMe)
 
       console.log(`> ${functionLabel} - ${auth.code}: ${auth.message}`)
 
+      if (auth.data?.token) { 
+        res.setHeader('Set-Cookie', cookie.serialize('token', auth.data.token, {
+          httpOnly: true, // A cookie só pode ser acessado pelo servidor
+          secure: process.env.STAGE === "production", // Define como true se estiver em produção (prod só https)
+          sameSite: 'strict', // A cookie só será enviada em requisições do mesmo site
+          maxAge: 60 * 60 * 24, // 1 dia
+          path: '/', // A cookie estará disponível em todo o site
+        }))
+      }
+      
       return res.status(auth.code).json({
         success: auth.success,
         message: auth.message,
