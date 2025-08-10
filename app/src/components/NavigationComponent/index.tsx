@@ -1,17 +1,22 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { House } from "lucide-react";
+import { ClipboardList, House, Landmark } from "lucide-react";
+import NavigationItemComponent from "../NavigationItemComponent";
+import { usePathname } from "next/navigation";
 
 interface NavigationProps {
   isOpen: boolean;
 }
 
 export default function NavigationComponent({ isOpen }: NavigationProps) {
-  const [isMouseOver, setIsMouseOver] = useState(false);
-  const [expanded, setExpanded] = useState(isOpen);
+  const selectedPath = usePathname()
+  const [isMouseOver, setIsMouseOver] = useState(false)
+  const [expanded, setExpanded] = useState(isOpen)
 
   useEffect(() => {
+    console.log(selectedPath)
+
     if (!isOpen) 
       setExpanded(isMouseOver)
     else 
@@ -20,22 +25,24 @@ export default function NavigationComponent({ isOpen }: NavigationProps) {
 
   return (
     <nav
-      className={`h-full bg-white border-r border-gray-200 transition-all duration-300 ease-in-out ${
-        expanded ? "w-[15vw]" : "w-[3vw]"
-      }`}
+      className={`h-full bg-[var(--componentsColor)] border-r border-gray-200 transition-all duration-300 ease-in-out ${expanded ? "w-[15vw]" : "w-[4vw]"}`}
       onMouseEnter={() => setIsMouseOver(true)}
       onMouseLeave={() => setIsMouseOver(false)}
     >
       <div className="w-full py-6">
-        <div
-          className={`from-indigo-400 to-indigo-300 bg-gradient-to-b p-3 rounded-r-full flex items-center gap-2 transition-all duration-300 ${
-            expanded ? "w-[90%]" : "w-[90%] justify-center"
-          }`}
-        >
-          <House color="white" className={!expanded ? "relative right-0.5" : ""} />
-          {expanded && <span className="text-white text-sm">Dashboard</span>}
-        </div>
+        <NavigationItemComponent isGroup={true} selectedItem={selectedPath == "/"} label="Dashboard" customClasses="cursor-pointer" icon={House} expanded={expanded}/>
+        
+        {/* BANK GROUP */}
+        <NavigationItemComponent isGroup={true} selectedItem={selectedPath.includes("/bank")} label="Banco" icon={Landmark} expanded={expanded}/>
+        <NavigationItemComponent isGroup={false} selectedItem={selectedPath == "/bank/list"} customClasses="cursor-pointer" label="Bancos" expanded={expanded}/>
+        <NavigationItemComponent isGroup={false} selectedItem={selectedPath == "/bank/transaction"} customClasses="cursor-pointer" label="Transações" expanded={expanded}/>
+        <NavigationItemComponent isGroup={false} selectedItem={selectedPath == "/bank/config"} customClasses="cursor-pointer" label="Configurações" expanded={expanded}/>
+        
+        {/* REPORT GROUP */}
+        <NavigationItemComponent isGroup={true} selectedItem={selectedPath.includes("/report")} customClasses="cursor-pointer" label="Relatórios" icon={ClipboardList} expanded={expanded}/>
       </div>
     </nav>
   );
 }
+
+ 

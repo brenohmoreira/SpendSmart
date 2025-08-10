@@ -2,6 +2,13 @@
 
 :root {
   --background: #FFFFFF;
+  --componentsColor: #FFFFFF;
+  
+  --selectedItemColor: #464D77;
+  --nonSelectedItemColor: #6f6f6f;
+  --selectedGroupColor: #FFFFFF;
+  --nonSelectedGroupColor: #000000;
+
   --foreground: #171717;
   --primary: #464D77;
   --secondary: #877666;

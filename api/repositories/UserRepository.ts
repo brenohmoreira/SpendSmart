@@ -3,7 +3,7 @@ import { insertQuery, selectQuery } from "../database/Database";
 
 export const UserRepository = {
   findByEmail: async (email: string): Promise<UserType[]> => {
-    const query = `SELECT * FROM users WHERE email = :email` 
+    const query = `SELECT * FROM User WHERE email = :email` 
     
     try {
       const users: UserType[] = await selectQuery<UserType>(query, { email })
@@ -15,7 +15,7 @@ export const UserRepository = {
   },
 
   create: async (user: UserType): Promise<number> => {
-    const query = `INSERT INTO users (name, email, password) VALUES (:name, :email, :password)`
+    const query = `INSERT INTO User (name, email, password) VALUES (:name, :email, :password)`
     
     try {
       const userId: number = await insertQuery(query, user)
