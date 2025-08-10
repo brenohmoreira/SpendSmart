@@ -43,6 +43,10 @@ body {
   background-color: var(--layout-color);
 }
 
+.bg-foreground {
+  background-color: #e6e4f3;
+}
+
 /* CUSTOM TEXTS  */
 
 .text-primary {
