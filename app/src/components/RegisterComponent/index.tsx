@@ -19,7 +19,7 @@ export function RegisterComponent() {
   async function handleRegister(e: React.FormEvent) {
     e.preventDefault()
 
-    api.post("/register", {
+    api.post("/users/create", {
       name,
       email,
       password 

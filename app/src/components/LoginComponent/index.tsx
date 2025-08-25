@@ -22,6 +22,7 @@ export function LoginComponent() {
       password,
       rememberMe: false // Assuming rememberMe is false by default
     }).then(response => {
+      console.log(response)
       toast.success("Conectado com sucesso")
       router.push("/")
     }).catch(error => {

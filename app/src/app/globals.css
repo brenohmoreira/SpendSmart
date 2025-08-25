@@ -7,6 +7,17 @@
   --secondary: #877666;
   --layout-color: #F4EDED; 
   --layout-foreground: #F2F3F9;
+  --border-style: 1px solid lighgray;
+}
+
+:root.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+  --primary: #8ab4f8;
+  --secondary: #e8eaed;
+  --layout-color: #202124; 
+  --layout-foreground: #2d2e30;
+  --border-style: none;
 }
 
 @theme inline {
@@ -60,3 +71,9 @@ body {
 .text-layout {
   color: var(--layout-color);
 }
+
+/* BORDER */
+
+.border-base {
+  border: var(--border-style);
+} 
