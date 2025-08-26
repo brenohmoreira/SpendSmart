@@ -25,7 +25,7 @@ export class AuthService {
     if (!passwordMatch) 
       throw new UnauthorizedException("Invalid credentials")
 
-    const token: string = jwt.sign({ id: users[0].id }, this.configService.get<string>("JWT_SECRET"), { 
+    const token: string = jwt.sign({ id: users[0].id }, this.configService.get<string>("JWT_SECRET")!, { 
       expiresIn: auth.rememberMe ? "30d" : "8h" 
     })
 
