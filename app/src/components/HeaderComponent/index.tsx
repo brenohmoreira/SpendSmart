@@ -26,7 +26,7 @@ export default function HeaderComponent({ toggleNav }: HeaderProps) {
   }, [])
 
   return (
-    <header className="w-full h-[7vh] bg-background border-base flex row items-center">
+    <header className="w-full h-[7vh] bg-background border-b-1 border-b-gray-200 border-base flex row items-center">
       <div className="w-3/20 h-full p-6 border-r-1 border-r-gray-200 flex row justify-center items-center">
         <span className="text-primary dark:text-white"> SpendSmart </span>
       </div>
