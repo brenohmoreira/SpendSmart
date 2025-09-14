@@ -1,6 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { TransactionRepository } from "../repositories/transaction.repository";
-import { ICreateTransaction, ITransaction } from "src/common/interfaces/transaction-interfaces";
+import { ICreateTransaction, ITransaction } from "src/common/interfaces/transaction/transaction-interfaces";
+import moment from "moment";
 
 @Injectable()
 export class TransactionService {
@@ -11,8 +12,10 @@ export class TransactionService {
         return transactions
     }
 
-    async getAllOfMonth(idUser: number): Promise<ITransaction[]> {
-        const transactions = await this.transactionRepository.getAllOfMonth(idUser)
+    async getAllOfMonth(idUser: number, month?: number, year?: number): Promise<ITransaction[]> {
+        const selectedMonth = month ?? moment().month() + 1 
+        const selectedYear = year ?? moment().year() 
+        const transactions = await this.transactionRepository.getAllOfMonth(idUser, selectedMonth, selectedYear)
         return transactions 
     }
 

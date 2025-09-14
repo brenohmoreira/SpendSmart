@@ -4,7 +4,7 @@
   --background: #FFFFFF;
   --componentsColor: #FFFFFF;
   
-  --selectedItemColor: #464D77;
+  --selectedItemColor: white;
   --nonSelectedItemColor: #6f6f6f;
   --selectedGroupColor: #FFFFFF;
   --nonSelectedGroupColor: #000000;
@@ -12,9 +12,10 @@
   --foreground: #171717;
   --primary: #464D77;
   --secondary: #877666;
-  --layout-color: #F4EDED; 
+  --layout-color: #edebf6; 
   --layout-foreground: #F2F3F9;
   --border-style: 1px solid lighgray;
+  --shadow-container-base: 0px 2px 2px 0px #b3aedb;
 }
 
 :root.dark {

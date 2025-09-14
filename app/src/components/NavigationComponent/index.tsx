@@ -1,8 +1,9 @@
 'use client'
 
-import { useState, useEffect } from "react";
-import { ClipboardList, House, Landmark } from "lucide-react";
 import NavigationItemComponent from "../NavigationItemComponent";
+
+import { useState, useEffect } from "react";
+import { ArrowRightLeft, House } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 interface NavigationProps {
@@ -30,16 +31,8 @@ export default function NavigationComponent({ isOpen }: NavigationProps) {
       onMouseLeave={() => setIsMouseOver(false)}
     >
       <div className="w-full py-6">
-        <NavigationItemComponent isGroup={true} selectedItem={selectedPath == "/"} label="Dashboard" customClasses="cursor-pointer" icon={House} expanded={expanded}/>
-        
-        {/* BANK GROUP */}
-        <NavigationItemComponent isGroup={true} selectedItem={selectedPath.includes("/bank")} label="Banco" icon={Landmark} expanded={expanded}/>
-        <NavigationItemComponent isGroup={false} selectedItem={selectedPath == "/bank/list"} customClasses="cursor-pointer" label="Bancos" expanded={expanded}/>
-        <NavigationItemComponent isGroup={false} selectedItem={selectedPath == "/bank/transaction"} customClasses="cursor-pointer" label="Transações" expanded={expanded}/>
-        <NavigationItemComponent isGroup={false} selectedItem={selectedPath == "/bank/config"} customClasses="cursor-pointer" label="Configurações" expanded={expanded}/>
-        
-        {/* REPORT GROUP */}
-        <NavigationItemComponent isGroup={true} selectedItem={selectedPath.includes("/report")} customClasses="cursor-pointer" label="Relatórios" icon={ClipboardList} expanded={expanded}/>
+        <NavigationItemComponent selectedItem={selectedPath == "/"} redirect="/" label="Dashboard" icon={House} expanded={expanded}/>
+        <NavigationItemComponent selectedItem={selectedPath.includes("/transacoes")} redirect="/transacoes" label="Transações" icon={ArrowRightLeft} expanded={expanded}/>
       </div>
     </nav>
   );

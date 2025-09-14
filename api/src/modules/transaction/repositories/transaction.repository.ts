@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common"
-import { ICreateTransaction, ITransaction } from "src/common/interfaces/transaction-interfaces"
+import { ICreateTransaction, ITransaction } from "src/common/interfaces/transaction/transaction-interfaces"
 import { DatabaseUtils } from "src/database/database.utils"
 
 @Injectable()
@@ -18,16 +18,20 @@ export class TransactionRepository {
         return transactions 
     }
 
-    async getAllOfMonth(idUser: number): Promise<ITransaction[]> {
+    async getAllOfMonth(idUser: number, month: number, year: number): Promise<ITransaction[]> {
         const query = `
             SELECT * FROM 
             bankTransaction bt
-            WHERE MONTH(bt.dateTransaction) = MONTH(GETDATE()) 
-            AND YEAR(bt.dateTransaction) = YEAR(GETDATE())
+            WHERE MONTH(bt.dateTransaction) = :month 
+            AND YEAR(bt.dateTransaction) = :year 
             AND idUser = :idUser 
         `
 
-        const transactions: ITransaction[] = await this.database.select(query, { idUser })
+        const transactions: ITransaction[] = await this.database.select(query, { 
+            idUser,
+            month, 
+            year 
+        })
 
         return transactions
     } 

@@ -1,5 +1,5 @@
 import { Injectable, UnauthorizedException } from "@nestjs/common"
-import { IUser } from "../../../common/interfaces/user-interfaces"
+import { IUser } from "../../../common/interfaces/user/user-interfaces"
 import { PasswordService } from "src/common/services/password.service"
 import { UserService } from "src/modules/user/services/user.service"
 import { IAuth } from "../interfaces/auth-interfaces"

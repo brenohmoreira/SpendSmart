@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { DatabaseUtils } from "src/database/database.utils";
-import { ICreateUser, IUser } from "../../../common/interfaces/user-interfaces";
+import { ICreateUser, IUser } from "../../../common/interfaces/user/user-interfaces";
 
 @Injectable()
 export class UserRepository {

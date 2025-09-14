@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { UserRepository } from "../repositories/user.repository";
-import { ICreateUser, IUser } from "src/common/interfaces/user-interfaces";
+import { ICreateUser, IUser } from "src/common/interfaces/user/user-interfaces";
 import { PasswordService } from "src/common/services/password.service";
 
 @Injectable()
