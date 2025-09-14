@@ -1,26 +1,66 @@
-import { Plus, Search } from "lucide-react";
+import { ArrowDown, ArrowUp } from "lucide-react"
 
 export default function TransacaoComponent() {
+    const transacoes = [
+        { tipo: "Crédito", nome: "PIX - Academia", valor: "R$ 1.200,00", data: "14/09/2025", direcao: "Entrada" },
+        { tipo: "Débito", nome: "Shark - Whey Protein (2x)", valor: "R$ 300,00", data: "13/09/2025", direcao: "Saída" },
+        { tipo: "Crédito", nome: "Shark - Creatina", valor: "R$ 450,00", data: "12/09/2025", direcao: "Entrada" },
+    ]
+
     return (
-        <div className="w-full h-full bg-white rounded-md shadow-[var(--shadow-container-base)]">
-            <div className="w-full h-[8%] border-b-gray-200 border-b-1"> 
+        <div className="w-full min-h-[70vh] lg:h-full bg-white rounded-md shadow-[var(--shadow-container-base)]">
+            <div className="w-full h-[8%]"> 
                 <div className="w-full h-full flex items-center justify-between p-3">
-                    <h3> Transações </h3>
+                    <div className="flex flex-row items-center gap-2">
+                        <div className="h-6 w-1 bg-indigo-500 rounded-full"></div>
+                        <h3> Transações </h3>
+                    </div>
 
                     <div className="flex items-center justify-center gap-[5px]">
-                        <button className="px-3 py-1 bg-indigo-500 text-white rounded-md">
-                        Filtrar
+                        <button className="px-3 py-1 bg-indigo-500 text-white rounded-md hover:brightness-90 cursor-pointer transition-all">
+                            Filtrar
                         </button>
-                        <button className="px-3 py-1 bg-indigo-500 text-white rounded-md">
-                        Incluir
+                        <button className="px-3 py-1 bg-indigo-500 text-white rounded-md hover:brightness-90 cursor-pointer transition-all">
+                            Incluir
                         </button>
                     </div>
                 </div>
             </div>
 
-            <div className="w-full h-[92%]">
+            <div className="w-full h-[92%] text-sm">
                 <div className="w-full h-[95%]">
+                    <table className="w-full text-left">
+                        <thead className="border-b-1 border-b-gray-200">
+                            <tr>
+                                <td className="p-4"> Tipo </td>
+                                <td className="p-4"> Nome </td>
+                                <td className="p-4"> Valor </td>
+                                <td className="p-4"> Data </td>
+                            </tr>
+                        </thead>
 
+                        <tbody>
+                            {transacoes.map((transacao, index) => (
+                                <tr className="border-b-1 border-b-gray-200">
+                                    <td className="p-4"> { transacao.tipo } </td>
+                                    <td className="p-4"> { transacao.nome } </td>
+                                    <td className="p-4 flex items-center gap-2 font-medium">
+                                        {transacao.direcao === "Entrada" ? (
+                                            <ArrowUp className="w-4 h-4 text-lime-600" />
+                                        ) : (
+                                            <ArrowDown className="w-4 h-4 text-red-500" />
+                                        )}
+                                        <span className={`px-2 py-0.5 rounded ${
+                                            transacao.direcao === "Entrada" ? "bg-lime-200 text-lime-700" : "bg-red-200 text-red-500"
+                                        }`}>
+                                            {transacao.valor}
+                                        </span>
+                                    </td>
+                                    <td className="p-4"> { transacao.data } </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
                 <div className="w-full h-[5%]">
                     
