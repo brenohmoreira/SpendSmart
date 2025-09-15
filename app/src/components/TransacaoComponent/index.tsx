@@ -1,6 +1,12 @@
+'use client'
+
 import { ArrowDown, ArrowUp } from "lucide-react"
+import { useState } from "react"
+import IncAltTransacaoComponent from "./IncAltTransacaoComponent"
 
 export default function TransacaoComponent() {
+    const [open, setOpen] = useState<boolean>(false)
+
     const transacoes = [
         { tipo: "Crédito", nome: "PIX - Academia", valor: "R$ 1.200,00", data: "14/09/2025", time: "3 PM", direcao: "Entrada" },
         { tipo: "Débito", nome: "Shark - Whey Protein (2x)", valor: "R$ 300,00", data: "13/09/2025", time: "2 AM", direcao: "Saída" },
@@ -9,6 +15,8 @@ export default function TransacaoComponent() {
 
     return (
         <div className="w-full min-h-[70vh] lg:h-full bg-white rounded-md shadow-[var(--shadow-container-base)]">
+            <IncAltTransacaoComponent open={open} onClose={() => setOpen(false)}/>
+
             <div className="w-full h-[8%]"> 
                 <div className="w-full h-full flex items-center justify-between p-3">
                     <div className="flex flex-row items-center gap-2">
@@ -20,7 +28,7 @@ export default function TransacaoComponent() {
                         <button className="px-3 py-1 bg-indigo-500 text-white rounded-md hover:brightness-90 cursor-pointer transition-all">
                             Filtrar
                         </button>
-                        <button className="px-3 py-1 bg-indigo-500 text-white rounded-md hover:brightness-90 cursor-pointer transition-all">
+                        <button onClick={() => setOpen(true)} className="px-3 py-1 bg-indigo-500 text-white rounded-md hover:brightness-90 cursor-pointer transition-all">
                             Incluir
                         </button>
                     </div>
