@@ -16,8 +16,6 @@ export default function NavigationComponent({ isOpen }: NavigationProps) {
   const [expanded, setExpanded] = useState(isOpen)
 
   useEffect(() => {
-    console.log(selectedPath)
-
     if (!isOpen) 
       setExpanded(isMouseOver)
     else 

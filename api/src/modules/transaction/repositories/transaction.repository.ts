@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common"
-import { ICreateTransaction, ITransaction } from "src/common/interfaces/transaction/transaction-interfaces"
+import { ICreateTransaction, ITransaction, ITypeTransaction } from "src/common/interfaces/transaction/transaction-interfaces"
 import { DatabaseUtils } from "src/database/database.utils"
 
 @Injectable()
@@ -35,6 +35,17 @@ export class TransactionRepository {
 
         return transactions
     } 
+
+    async getTransactionTypes(): Promise<ITypeTransaction[]> {
+        const query = `
+            SELECT id, nameTransaction FROM 
+            typetransaction
+        `
+
+        const transactionTypes: ITypeTransaction[] = await this.database.select(query, {})
+
+        return transactionTypes
+    }
 
     async create(transaction: ICreateTransaction): Promise<void> {
         const query = `

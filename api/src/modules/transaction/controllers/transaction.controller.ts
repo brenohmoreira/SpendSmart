@@ -19,6 +19,12 @@ export class TransactionController {
         return await this.transactionService.getAllOfMonth(idUser, query.month, query.year)
     } 
 
+    @Get("/getTypes")
+    @HttpCode(200) 
+    async getTransactionTypes() {
+        return await this.transactionService.getTransactionTypes() 
+    }
+
     @Post("/create")
     @HttpCode(201) 
     async create(@Body() transaction: CreateTransactionDTO) {

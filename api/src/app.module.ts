@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common'
 import { ConfigModule } from '@nestjs/config'
 import { AuthModule } from './modules/auth/auth.module'
+import { TransactionModule } from './modules/transaction/transaction.module'
 
 @Module({
   imports: [
@@ -8,7 +9,8 @@ import { AuthModule } from './modules/auth/auth.module'
       isGlobal: true,
       envFilePath: ".env",
     }),
-    AuthModule
+    AuthModule,
+    TransactionModule
   ],
   controllers: [],
   providers: [],
